@@ -8,6 +8,7 @@
     export let coordinates = { lat: 0, lng: 0 }
     export let maxWidth = 'none'
     export let open = true
+    export let closeOnClick = true
 
     let ref = null
 
@@ -21,7 +22,7 @@
         open = false
     }
 
-    const popup = new mapboxgl.Popup({ closeOnClick: false })
+    const popup = new mapboxgl.Popup({ closeOnClick })
         .setMaxWidth(maxWidth)
         .on('open', handleOpen)
         .on('close', handleClose)
