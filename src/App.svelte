@@ -51,21 +51,36 @@
 
 </script>
 
+<div class='map-container'>
+
+    <Map
+        accessToken="pk.eyJ1IjoicnNkYXZpcyIsImEiOiJja2ZvZTY4aW4wOTVyMnluNXl1MGt2MW5wIn0.JeYnGnOYfkXkwILRNAQi3g"
+        center={coordinates}
+        zoom="7"
+        on:click={() => popupOpen = false}
+    >
+
+        <Popup coordinates={popupCoords} bind:open={popupOpen} closeOnClick={false}>
+            <img src="https://picsum.photos/200/200" alt="">
+        </Popup>
+
+        <Layer { geoJson } on:click={handleLayerClick}/>
+
+    </Map>
+
+</div>
+
 <style>
+
+    .map-container {
+        height: 100vh;
+    }
+
+    h2 {
+        border: 1px solid black;
+        margin: 0;
+    }
+    img {
+        display: block;
+    }
 </style>
-
-<Map
-    accessToken="pk.eyJ1IjoicnNkYXZpcyIsImEiOiJja2ZvZTY4aW4wOTVyMnluNXl1MGt2MW5wIn0.JeYnGnOYfkXkwILRNAQi3g"
-    center={coordinates}
-    zoom="7"
-    on:click={() => popupOpen = false}
->
-
-    <Popup coordinates={popupCoords} bind:open={popupOpen} closeOnClick={false}>
-        <h1>Hello world</h1>
-        <p>{ count }</p>
-    </Popup>
-
-    <Layer { geoJson } on:click={handleLayerClick}/>
-
-</Map>
